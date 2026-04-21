@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4lu27edymkjy"]
+[gd_scene format=3 uid="uid://b63j42clu8jg8"]
 
 [ext_resource type="Script" uid="uid://ch4eyad0rvs6b" path="res://Door.gd" id="1_1vvux"]
 [ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_iu8q0"]

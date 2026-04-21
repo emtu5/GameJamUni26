@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Canvasmod="*uid://btg41wq31tiyt"
+Fadeout="*uid://c0oneusxje4qc"
 
 [input]
 

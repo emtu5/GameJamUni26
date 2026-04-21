@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0ksta2tsj2cm" path="res://wall.png" id="3_u5qfc"]
 [ext_resource type="PackedScene" uid="uid://418ik7ccip8x" path="res://enemy/navigation_region_2d.tscn" id="5_u5qfc"]
 [ext_resource type="PackedScene" uid="uid://dopoomcf6i0y3" path="res://enemy/enemy.tscn" id="6_bvuje"]
-[ext_resource type="PackedScene" uid="uid://b4lu27edymkjy" path="res://Door.tscn" id="7_h16f0"]
+[ext_resource type="PackedScene" uid="uid://b63j42clu8jg8" path="res://Door.tscn" id="7_h16f0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tai8l"]
 texture = ExtResource("1_k3ug5")
@@ -72,7 +72,7 @@ position = Vector2(1095, 405)
 goal = NodePath("../Player")
 
 [node name="Door" parent="." unique_id=339934654 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
-position = Vector2(697.00006, 354.00003)
+position = Vector2(698, 356)
 teleport_location = NodePath("../TPLOC_TEST")
 
 [node name="TPLOC_TEST" type="Node2D" parent="." unique_id=1227390320]
