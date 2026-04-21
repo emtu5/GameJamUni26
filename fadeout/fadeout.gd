@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
