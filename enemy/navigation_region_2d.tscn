@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://418ik7ccip8x"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_u5qfc"]
+vertices = PackedVector2Array(538, 196, 538, 228, 506, 228, 474, 196, 474, 356, 506, 324, 634, 228, 602, 228, 602, 196, 698, 196, 698, 388, 634, 324, 762, 388, 762, 356, 1434, 356, 1434, 388, 1498, 196, 1754, 196, 1754, 228, 1722, 228, 1722, 452, 1690, 452, 1690, 228, 1626, 228, 1626, 452, 1594, 452, 1594, 228, 1530, 228, 1498, 388, 1530, 452, 1498, 452, 1498, 420, 1434, 420, 1114, 452, 1082, 452, 762, 420, 1434, 452, 1114, 516, 1146, 516, 1146, 580, 1114, 580, 1114, 644, 1210, 644, 1210, 676, 1178, 676, 1178, 900, 1082, 900, 1082, 772, 954, 772, 954, 644, 1082, 644, 1082, 580, 1050, 580, 1050, 516, 1082, 516, 762, 452, 698, 420, 698, 452, 442, 452, 442, 356)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(19, 20, 21, 22), PackedInt32Array(16, 19, 22), PackedInt32Array(16, 22, 23), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(16, 23, 26), PackedInt32Array(16, 26, 27), PackedInt32Array(28, 16, 27, 29), PackedInt32Array(29, 30, 31), PackedInt32Array(28, 29, 31), PackedInt32Array(15, 28, 31, 32), PackedInt32Array(12, 15, 32, 33, 34, 35), PackedInt32Array(32, 36, 33), PackedInt32Array(37, 38, 39, 40), PackedInt32Array(41, 42, 43, 44), PackedInt32Array(44, 45, 46, 47, 41), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(41, 47, 50, 40), PackedInt32Array(40, 50, 51, 37), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(37, 51, 54, 33), PackedInt32Array(33, 54, 34), PackedInt32Array(34, 55, 35), PackedInt32Array(10, 12, 35, 56), PackedInt32Array(56, 57, 58, 59, 4), PackedInt32Array(56, 4, 5, 11, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1784, 164, 1468, 170, 1470, 326, 733, 325, 724, 160, 412, 165, 408, 483, 1019, 486, 1017, 610, 918, 611, 925, 935, 1244, 938, 1241, 612, 1172, 608, 1179, 486, 1566, 490, 1783, 488)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation"
+agent_radius = 16.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" unique_id=1028354647]
+navigation_polygon = SubResource("NavigationPolygon_u5qfc")
+use_edge_connections = false
