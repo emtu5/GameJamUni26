@@ -6,7 +6,8 @@ var mouse_vector = Vector2.ZERO
 
 func _ready():
 	
-	ray.add_exception(player)
+	#ray.add_exception(player)
+	pass
 	
 func _process(delta: float) -> void:
 	mouse_vector = mouse_vector.lerp(get_global_mouse_position(), 0.2) # get mouse position + smooth
