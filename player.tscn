@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://crqfm7c744vw" path="res://flashlight.gd" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(62, 62)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_onrkg"]
 size = Vector2(32, 16)
@@ -27,8 +28,13 @@ script = ExtResource("3_i3pqv")
 [node name="Flashlight" type="Sprite2D" parent="Pivot" unique_id=251600498]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(90, 0)
+position = Vector2(59, 0)
 texture = SubResource("PlaceholderTexture2D_onrkg")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot" unique_id=907411532]
-target_position = Vector2(261, 0)
+target_position = Vector2(110, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1146567450]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
