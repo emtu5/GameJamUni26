@@ -78,16 +78,6 @@ teleport_location = NodePath("../TPLOC_TEST")
 
 [node name="TPLOC_TEST" type="Node2D" parent="." unique_id=1227390320]
 position = Vector2(1118, 727)
-scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Key" parent="." unique_id=576649818 instance=ExtResource("8_bbwhg")]
 position = Vector2(976.9999, 724)
-
-[node name="DoorLocked" parent="." unique_id=1555801373 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
-position = Vector2(1126.9999, 893.99994)
-teleport_location = NodePath("../TPLOC_LOCKED_TEST")
-isLocked = true
-
-[node name="TPLOC_LOCKED_TEST" type="Node2D" parent="." unique_id=192745834]
-position = Vector2(1621.9998, 402.00003)
-scale = Vector2(0.19999997, 0.19999997)

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://b4lu27edymkjy"]
+[gd_scene format=3 uid="uid://bwv0r4th5ysdf"]
 
-[ext_resource type="Script" uid="uid://ch4eyad0rvs6b" path="res://Door.gd" id="1_1vvux"]
-[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_iu8q0"]
+[ext_resource type="Script" uid="uid://bbklouje5m52k" path="res://Key.gd" id="1_3nogi"]
+[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_40kd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuixy"]
 size = Vector2(115.00001, 110)
@@ -9,10 +9,10 @@ size = Vector2(115.00001, 110)
 [node name="Node2D" type="Node2D" unique_id=339934654]
 modulate = Color(0, 1, 0, 1)
 scale = Vector2(0.2, 0.2)
-script = ExtResource("1_1vvux")
+script = ExtResource("1_3nogi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=401805048]
-texture = ExtResource("2_iu8q0")
+texture = ExtResource("2_40kd0")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332553779]
 collision_layer = 128
