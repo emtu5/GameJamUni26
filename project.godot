@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Canvasmod="*uid://btg41wq31tiyt"
+Fadeout="*uid://c0oneusxje4qc"
 
 [input]
 
@@ -59,3 +60,4 @@ common/physics_interpolation=true
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
