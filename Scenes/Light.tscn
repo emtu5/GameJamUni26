@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c4upgqkpjfqe0"]
+
+[ext_resource type="Texture2D" uid="uid://d36mgb0saccgo" path="res://light.png" id="1_v1p71"]
+
+[node name="Light" type="Node2D" unique_id=1597256153]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=263042388]
+texture = ExtResource("1_v1p71")
+texture_scale = 0.15

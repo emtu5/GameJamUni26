@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b8sy8t5bq01e0"]
+
+[ext_resource type="Script" uid="uid://c0eww0nf4hjk7" path="res://Scripts/Folder.gd" id="1_kho3w"]
+[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_u3rq5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh54u"]
+
+[node name="Folder" type="Node2D" unique_id=468401481]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_kho3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1191347239]
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_u3rq5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1549660805]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2002483277]
+shape = SubResource("RectangleShape2D_xh54u")
