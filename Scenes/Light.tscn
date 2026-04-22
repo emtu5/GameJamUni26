@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://c4upgqkpjfqe0"]
 
+[ext_resource type="Script" uid="uid://dcqnho48ae8eq" path="res://Scripts/light.gd" id="1_ixlo8"]
 [ext_resource type="Texture2D" uid="uid://d36mgb0saccgo" path="res://light.png" id="1_v1p71"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qaibf"]
+radius = 65.86
+
 [node name="Light" type="Node2D" unique_id=1597256153]
+script = ExtResource("1_ixlo8")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=263042388]
 texture = ExtResource("1_v1p71")
 texture_scale = 0.15
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1813981051]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1502865234]
+shape = SubResource("CircleShape2D_qaibf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqc1tbimmu7k6"]
+
+[ext_resource type="PackedScene" uid="uid://b2fhr5i1myjh6" path="res://Scenes/player.tscn" id="1_hi4ql"]
+[ext_resource type="PackedScene" uid="uid://c4upgqkpjfqe0" path="res://Scenes/Light.tscn" id="2_owqht"]
+[ext_resource type="PackedScene" uid="uid://dopoomcf6i0y3" path="res://enemy/enemy.tscn" id="3_owqht"]
+
+[node name="Testlight" type="Node2D" unique_id=1720472608]
+
+[node name="Player" parent="." unique_id=677089403 instance=ExtResource("1_hi4ql")]
+position = Vector2(46, 373)
+
+[node name="Light" parent="." unique_id=1597256153 instance=ExtResource("2_owqht")]
+position = Vector2(137, 460)
+
+[node name="Enemy" parent="." unique_id=207693818 node_paths=PackedStringArray("goal") instance=ExtResource("3_owqht")]
+position = Vector2(160, 328)
+goal = NodePath("../Player")
