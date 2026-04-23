@@ -6,6 +6,7 @@ var move_dir = Vector2.ZERO
 @onready var arealight = $AreaLight
 @onready var flashlight = $Pivot/Flashlight
 @onready var interactray = $Pivot/RayCast2D
+@onready var cam: Camera2D = $Camera
 var hasFirstKey:bool
 var hasSecondKey:bool
 var hasLightSource:bool = false
@@ -40,7 +41,12 @@ func process_sanity() -> void:
 	else:
 		modify_sanity(-SANITY_INCREMENT)
 	print(sanity)
-	
+	if sanity >= 60:
+		cam.normal_shader()
+	elif sanity >= 40:
+		cam.vignette_shader()
+	else:
+		cam.distort_shader()
 	
 func modify_sanity(increment: float) -> void:
 	if sanity + increment > 100:

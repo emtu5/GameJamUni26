@@ -7,10 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://dtgicxokn6ti1" path="res://flashlight.jpg" id="4_2hs0m"]
 [ext_resource type="Script" uid="uid://b72b3sy6hpa8o" path="res://Scripts/camera.gd" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://d36mgb0saccgo" path="res://light.png" id="6_1jxqw"]
+[ext_resource type="Shader" uid="uid://c7fmkn1prpl5c" path="res://Scripts/vignette.gdshader" id="7_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://nt3osp6lfyq8" path="res://Sounds/clicklanterna1_ambientspital.ogg" id="8_8erm5"]
+[ext_resource type="Shader" uid="uid://dmorwro4oaaoc" path="res://Scripts/distort.gdshader" id="8_gymyn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
 radius = 31.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pu2lt"]
+shader = ExtResource("7_tx1dd")
+shader_parameter/outerRadius = 2.000000095
+shader_parameter/MainAlpha = 0.0
+shader_parameter/vignette_color = Color(0.14901961, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukyrk"]
+shader = ExtResource("8_gymyn")
+shader_parameter/chaos = 0.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 1.50000002375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
 radius = 32.0
@@ -61,6 +75,32 @@ position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 editor_draw_limits = true
 script = ExtResource("4_hqtel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera" unique_id=1985026233]
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CanvasLayer" unique_id=1292656588]
+material = SubResource("ShaderMaterial_pu2lt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Camera/CanvasLayer" unique_id=514414421]
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CanvasLayer/BackBufferCopy" unique_id=1906571175]
+material = SubResource("ShaderMaterial_ukyrk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.999977
+offset_top = -3.0000076
+offset_right = -2.9999695
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.787481, 3.2671432)
 
 [node name="AreaLight" type="PointLight2D" parent="." unique_id=822314670]
 energy = 0.5
