@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://sq1skecic2xn"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tb6a6"]
+vertices = PackedVector2Array(4226, 2204, 4162, 2204, 4162, 2188, 4242, 2188, 4242, 2588, 4226, 2284, 4162, 2588, 4162, 2572, 4226, 2572, 4146, 2492, 4066, 2492, 4066, 2476, 4130, 2476, 4146, 2396, 4130, 2396, 3922, 2572, 4082, 2572, 4082, 2588, 3874, 2588, 3874, 2476, 3922, 2492, 3970, 2476, 3986, 2492, 3986, 2396, 3970, 2332, 3890, 2332, 3890, 2396, 3874, 2396, 3874, 2316, 3986, 2316, 3986, 2380, 4226, 2380, 4226, 2396, 4066, 2236, 3874, 2236, 3874, 2188, 4082, 2188, 4082, 2284, 4066, 2300, 4226, 2300)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(4, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 9, 12, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(15, 18, 19, 20), PackedInt32Array(20, 19, 21, 22), PackedInt32Array(23, 22, 21, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(25, 28, 29, 24), PackedInt32Array(24, 29, 30), PackedInt32Array(23, 24, 30), PackedInt32Array(14, 23, 30, 31), PackedInt32Array(13, 14, 31), PackedInt32Array(32, 13, 31), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(33, 36, 37, 38), PackedInt32Array(39, 38, 37, 5), PackedInt32Array(39, 5, 4), PackedInt32Array(31, 39, 4), PackedInt32Array(32, 31, 4), PackedInt32Array(32, 4, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4275, 2152, 3836, 2148, 3832, 2633, 4278, 2634)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation"
+border_size = 20.0
+agent_radius = 24.0
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" unique_id=1257586620]
+navigation_polygon = SubResource("NavigationPolygon_tb6a6")
