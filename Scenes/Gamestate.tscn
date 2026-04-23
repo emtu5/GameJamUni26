@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4tod7nfpc1xo"]
+
+[ext_resource type="Script" uid="uid://dhsp8f3unrax3" path="res://Scripts/Gamestate.gd" id="1_dqs44"]
+[ext_resource type="AudioStream" uid="uid://bapcndmqvvdtw" path="res://Sounds/ambience1_ambientspital.mp3" id="2_0nr52"]
+[ext_resource type="AudioStream" uid="uid://c75plruumdavy" path="res://Sounds/ambience_ambientspital.mp3" id="2_3menb"]
+[ext_resource type="AudioStream" uid="uid://d263i221w56pu" path="res://Sounds/ambience2_ambientspital.mp3" id="4_l4pxm"]
+[ext_resource type="AudioStream" uid="uid://bxs15mi2no6ey" path="res://Sounds/whispers_ambientspital.mp3" id="5_fkeod"]
+
+[node name="GAMESTATE" type="Node2D" unique_id=412032297]
+script = ExtResource("1_dqs44")
+BGAOne = ExtResource("2_3menb")
+BGATwo = ExtResource("2_0nr52")
+BGAThree = ExtResource("4_l4pxm")
+BGAFour = ExtResource("5_fkeod")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1341863541]
+autoplay = true
+max_distance = 261431.0

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ch4eyad0rvs6b" path="res://Scripts/Door.gd" id="1_mw28t"]
 [ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_7mbvs"]
+[ext_resource type="AudioStream" uid="uid://123qgd3k46js" path="res://Sounds/usa2_ambientspital.ogg" id="3_7mbvs"]
+[ext_resource type="AudioStream" uid="uid://cy767dh6hkk6g" path="res://Sounds/usa3_ambientspital.mp3" id="4_1fk65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuixy"]
 size = Vector2(115.00001, 110)
@@ -22,3 +24,9 @@ collision_mask = 128
 position = Vector2(-2.5000043, 5.0000024)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_cuixy")
+
+[node name="OpenAudio" type="AudioStreamPlayer2D" parent="." unique_id=1373174414]
+stream = ExtResource("3_7mbvs")
+
+[node name="CloseAudio" type="AudioStreamPlayer2D" parent="." unique_id=803998441]
+stream = ExtResource("4_1fk65")

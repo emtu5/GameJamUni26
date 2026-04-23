@@ -13,6 +13,7 @@ var isAttacked: bool = false
 @onready var foldercount:int = 0
 var sanity:float
 const SANITY_INCREMENT: float = 0.1
+@onready var audioplayer = $FlashlightPlayer
 func _ready():
 	sanity = 100
 
@@ -24,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() #move player
 	
 	if Input.is_action_just_pressed("toggle_flashlight"):
-		#arealight.enabled = not arealight.enabled
+		audioplayer.play()
 		flashlight.enabled = not flashlight.enabled
 
 	if Input.is_action_just_pressed("Interact"):

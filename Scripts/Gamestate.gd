@@ -1,1 +1,19 @@
 extends Node2D
+@onready var audioplayer = $AudioStreamPlayer2D
+@export_category("Ambience Sounds")
+@export var BGAOne:AudioStreamMP3
+@export var BGATwo:AudioStreamMP3
+@export var BGAThree:AudioStreamMP3
+@export var BGAFour:AudioStreamMP3
+var streams: Array[AudioStreamMP3] = [BGAOne, BGATwo, BGAThree, BGAFour]
+
+func _ready() -> void:
+	play_random_BGA()
+	
+func play_random_BGA():
+	var rnd = randi_range(0,3)
+	var current_pick = streams[rnd]
+	print(rnd)
+	audioplayer.stream = current_pick
+	audioplayer.play()
+	await audioplayer.finished

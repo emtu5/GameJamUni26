@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c63ykn0vht4de"]
 
 [ext_resource type="Script" uid="uid://8fuajhvqrlrs" path="res://Scripts/Phone.gd" id="1_6nmxn"]
-[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_uny81"]
+[ext_resource type="Texture2D" uid="uid://fj7homysemc" path="res://Textures/phone1.png" id="2_6nmxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jb4b6"]
 size = Vector2(120, 120)
@@ -16,7 +16,7 @@ script = ExtResource("1_6nmxn")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=671726685]
 modulate = Color(0, 1, 0, 1)
 texture_filter = 1
-texture = ExtResource("2_uny81")
+texture = ExtResource("2_6nmxn")
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=5893199]
 collision_layer = 128

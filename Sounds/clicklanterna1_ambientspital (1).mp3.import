@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0gme3llwp6fb"
+path="res://.godot/imported/clicklanterna1_ambientspital (1).mp3-d47dda6780922e608f1fcad2a4580698.mp3str"
+
+[deps]
+
+source_file="res://Sounds/clicklanterna1_ambientspital (1).mp3"
+dest_files=["res://.godot/imported/clicklanterna1_ambientspital (1).mp3-d47dda6780922e608f1fcad2a4580698.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
