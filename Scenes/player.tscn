@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://sety0tp71362" path="res://Scripts/pills.gd" id="13_7dp3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
-radius = 31.0
+radius = 33.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu2lt"]
 shader = ExtResource("7_tx1dd")
@@ -31,9 +31,10 @@ shader_parameter/radius = 2.0
 shader_parameter/attenuation = 1.50000002375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
-radius = 32.0
+radius = 34.0147
 
 [node name="Player" type="CharacterBody2D" unique_id=677089403]
+collision_layer = 65
 motion_mode = 1
 script = ExtResource("1_onrkg")
 speed = 75
@@ -125,8 +126,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="." unique_id=967960776]
-collision_layer = 18
-collision_mask = 18
+collision_layer = 26
+collision_mask = 26
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1231752916]
 shape = SubResource("CircleShape2D_3smsa")

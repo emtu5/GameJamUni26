@@ -18,7 +18,6 @@ func _ready():
 
 func interact():
 	overhead_text.text = "picked up a folder!"
-	player.foldercount += 1
 	uiNode.show()
 	match selectedText:
 		FolderText.FIRST:
@@ -43,3 +42,4 @@ func get_fucking_text(filePath):
 func _on_button_pressed() -> void:
 	uiNode.hide()
 	queue_free()
+	player.foldercount += 1
