@@ -124,7 +124,7 @@ tile_set = SubResource("TileSet_lce2v")
 
 [node name="Player" parent="." unique_id=677089403 instance=ExtResource("2_tai8l")]
 z_index = 1
-position = Vector2(2444, 1138)
+position = Vector2(2444, 1141)
 scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" parent="." unique_id=1028354647 instance=ExtResource("5_u5qfc")]
@@ -265,11 +265,12 @@ rotation = -0.9302605
 scale = Vector2(1, 1)
 
 [node name="WaitingDoor" parent="ROOM2  - WAITING" unique_id=344907092 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
-position = Vector2(5.9999995, 45.999996)
+position = Vector2(5.9999995, 59.999996)
+rotation = -1.5707964
 teleport_location = NodePath("TPLOC")
 
 [node name="TPLOC" type="Node2D" parent="ROOM2  - WAITING/WaitingDoor" unique_id=819298301]
-position = Vector2(-959.99994, -2394.9998)
+position = Vector2(2539.9998, -854.9997)
 
 [node name="Folder1" parent="ROOM2  - WAITING" unique_id=208845382 instance=ExtResource("12_r8jfd")]
 position = Vector2(-102, 390)
@@ -321,6 +322,7 @@ shape = SubResource("RectangleShape2D_irv12")
 [node name="Phone" parent="ROOM4 - PATIENT -INCOMP" unique_id=2036686605 instance=ExtResource("14_ep5ry")]
 position = Vector2(-73, 166)
 rotation = -0.58119464
+phonetext = "\"I asked for help... you were there... you never came.\""
 
 [node name="Chair" type="StaticBody2D" parent="ROOM4 - PATIENT -INCOMP" unique_id=518565497]
 position = Vector2(-74, 47)

@@ -15,6 +15,7 @@ var isAttacked: bool = false
 var sanity:float
 const SANITY_INCREMENT: float = 0.1
 @onready var audioplayer = $FlashlightPlayer
+@onready var uifolder = $UI/FolderCountUI/Counter
 func _ready():
 	sanity = 100
 
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		if hit and hit.get_parent() is Interactable:
 			hit.get_parent().interact()
 		
+	uifolder.text = "%s / 5" % foldercount
 	
 func process_sanity() -> void:
 	if (flashlight.enabled or hasLightSource) and not isAttacked:

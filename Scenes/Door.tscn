@@ -1,28 +1,29 @@
 [gd_scene format=3 uid="uid://b4lu27edymkjy"]
 
 [ext_resource type="Script" uid="uid://ch4eyad0rvs6b" path="res://Scripts/Door.gd" id="1_mw28t"]
-[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_7mbvs"]
+[ext_resource type="Texture2D" uid="uid://c6g0wauk2c56r" path="res://Textures/door1.png" id="2_1fk65"]
 [ext_resource type="AudioStream" uid="uid://123qgd3k46js" path="res://Sounds/usa2_ambientspital.ogg" id="3_7mbvs"]
 [ext_resource type="AudioStream" uid="uid://cy767dh6hkk6g" path="res://Sounds/usa3_ambientspital.mp3" id="4_1fk65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuixy"]
-size = Vector2(115.00001, 110)
+size = Vector2(60.00004, 260.00006)
 
 [node name="Door" type="Node2D" unique_id=339934654]
-modulate = Color(0, 1, 0, 1)
+texture_filter = 1
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_mw28t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=401805048]
-texture = ExtResource("2_7mbvs")
+scale = Vector2(4, 4)
+texture = ExtResource("2_1fk65")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332553779]
 collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2038035199]
-position = Vector2(-2.5000043, 5.0000024)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(34.999985, -2.3841849e-06)
+scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_cuixy")
 
 [node name="OpenAudio" type="AudioStreamPlayer2D" parent="." unique_id=1373174414]
