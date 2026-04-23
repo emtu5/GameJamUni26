@@ -15,6 +15,8 @@ var isAttacked: bool = false
 var sanity:float
 const SANITY_INCREMENT: float = 0.1
 @onready var audioplayer = $FlashlightPlayer
+@onready var heartbeat = $HeartbeatPlayer
+@onready var pills = $UI/Pills
 @onready var uifolder = $UI/FolderCountUI/Counter
 func _ready():
 	sanity = 100
@@ -45,10 +47,16 @@ func process_sanity() -> void:
 	print(sanity)
 	if sanity >= 60:
 		cam.normal_shader()
+		heartbeat.play_heartbeat("normal")
+		pills.set_pills(0)
 	elif sanity >= 40:
 		cam.vignette_shader()
+		heartbeat.play_heartbeat("stressed")
+		pills.set_pills(1)
 	else:
 		cam.distort_shader()
+		heartbeat.play_heartbeat("nauseous")
+		pills.set_pills(2)
 	
 func modify_sanity(increment: float) -> void:
 	if sanity + increment > 100:

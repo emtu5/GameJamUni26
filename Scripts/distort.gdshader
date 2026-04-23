@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform float chaos : hint_range(0., 32.) = 1.;
 
-uniform float radius : hint_range(0., 1.) = 0.5;
+uniform float radius : hint_range(0., 2.) = 0.5;
 
 uniform float attenuation : hint_range(1., 5.) = 2.;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
