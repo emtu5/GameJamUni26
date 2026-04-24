@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://b2fhr5i1myjh6"]
 
 [ext_resource type="Script" uid="uid://ce72wh14rp74s" path="res://Scripts/player_move.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dw0xaxixln5ea" path="res://Textures/breathing_v1/000.png" id="2_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://cvs7ltxnfd8w" path="res://Textures/walk_v1/walk_1.png" id="2_qqcod"]
 [ext_resource type="Script" uid="uid://crqfm7c744vw" path="res://Scripts/flashlight.gd" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://b34senyiy6pg3" path="res://Textures/walk_v1/walk_2.png" id="3_igrcy"]
+[ext_resource type="Texture2D" uid="uid://r1q86sxva1he" path="res://Textures/breathing_v1/001.png" id="3_l6n3p"]
 [ext_resource type="Texture2D" uid="uid://ct883a4ks88ky" path="res://Textures/flashlight.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dtgicxokn6ti1" path="res://flashlight.jpg" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://ct1crsk6xgdpn" path="res://Textures/walk_v1/walk_3.png" id="4_fs7ks"]
 [ext_resource type="Script" uid="uid://b72b3sy6hpa8o" path="res://Scripts/camera.gd" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://jgu3u5pxrimi" path="res://Textures/walk_v1/walk_4.png" id="5_l6n3p"]
 [ext_resource type="Texture2D" uid="uid://d36mgb0saccgo" path="res://light.png" id="6_1jxqw"]
 [ext_resource type="Shader" uid="uid://c7fmkn1prpl5c" path="res://Scripts/vignette.gdshader" id="7_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://nt3osp6lfyq8" path="res://Sounds/clicklanterna1_ambientspital.ogg" id="8_8erm5"]
@@ -16,7 +21,38 @@
 [ext_resource type="Script" uid="uid://sety0tp71362" path="res://Scripts/pills.gd" id="13_7dp3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
-radius = 33.0
+radius = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olqyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l6n3p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_igrcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l6n3p")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu2lt"]
 shader = ExtResource("7_tx1dd")
@@ -42,9 +78,11 @@ speed = 75
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719140783]
 shape = SubResource("CircleShape2D_8erm5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=241478818]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_i3pqv")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=590557999]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_olqyp")
+animation = &"walk"
+frame_progress = 0.965357
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1490937882]
 script = ExtResource("3_i3pqv")
@@ -52,9 +90,9 @@ script = ExtResource("3_i3pqv")
 [node name="FlashlightTexture" type="Sprite2D" parent="Pivot" unique_id=251600498]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(48, 0)
+position = Vector2(31.000002, 1.1368684e-13)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_1jxqw")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot" unique_id=907411532]
@@ -63,7 +101,7 @@ collision_mask = 128
 collide_with_areas = true
 
 [node name="Flashlight" type="PointLight2D" parent="Pivot" unique_id=87980962]
-position = Vector2(1.5258789e-05, -1.6263033e-19)
+position = Vector2(-15.000002, -1.4901161e-08)
 rotation = -1.5707964
 scale = Vector2(3.1415958, 2.4156456)
 shadow_enabled = true

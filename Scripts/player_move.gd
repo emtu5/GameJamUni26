@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var speed:int = 15
 var move_dir = Vector2.ZERO
+@onready var player_sprite: AnimatedSprite2D = $Sprite2D
 @onready var arealight = $AreaLight
 @onready var flashlight = $Pivot/Flashlight
 @onready var interactray = $Pivot/RayCast2D
@@ -26,6 +27,11 @@ func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left","move_right","move_up","move_down") #get input vector
 	move_dir = move_dir.lerp(input_dir, 0.265) #lerp for smoothing
 	velocity = move_dir * speed # apply movement vector and speed 
+	print(velocity.length())
+	if velocity.length() < 1:
+		player_sprite.play("idle")
+	else:
+		player_sprite.play("walk")
 	move_and_slide() #move player
 	
 	if Input.is_action_just_pressed("toggle_flashlight"):
@@ -44,7 +50,7 @@ func process_sanity() -> void:
 		modify_sanity(SANITY_INCREMENT)
 	else:
 		modify_sanity(-SANITY_INCREMENT)
-	print(sanity)
+	#print(sanity)
 	if sanity >= 60:
 		cam.normal_shader()
 		heartbeat.play_heartbeat("normal")
