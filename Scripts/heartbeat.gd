@@ -1,9 +1,9 @@
 extends AudioStreamPlayer2D
 
 static var heartbeats: Dictionary = {
-	"normal": preload("res://Sounds/Heartbeat_ambientspital.mp3"),
-	"stressed": preload("res://Sounds/Heartbeat_ambientspital.mp3"),
-	"nauseous": preload("res://Sounds/Heartbeat_ambientspital.mp3")
+	"normal": preload("res://Sounds/AUDIO_heartbeat_lent.mp3"),
+	"stressed": preload("res://Sounds/AUDIO_heartbeat_mediu.mp3"),
+	"nauseous": preload("res://Sounds/AUDIO_heartbeat_alert.mp3")
 }
 var current_beat: String = ""
 

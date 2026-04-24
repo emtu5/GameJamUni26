@@ -10,6 +10,7 @@ var move_dir = Vector2.ZERO
 @onready var cam: Camera2D = $Camera
 var hasFirstKey:bool
 var hasSecondKey:bool
+var gotfirstphone:bool # add to ending reqs
 var hasLightSource:bool = false
 var isAttacked: bool = false
 @onready var foldercount:int = 0
@@ -27,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left","move_right","move_up","move_down") #get input vector
 	move_dir = move_dir.lerp(input_dir, 0.265) #lerp for smoothing
 	velocity = move_dir * speed # apply movement vector and speed 
-	print(velocity.length())
+	#print(velocity.length())
 	if velocity.length() < 1:
 		player_sprite.play("idle")
 	else:

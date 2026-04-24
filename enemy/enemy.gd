@@ -7,18 +7,30 @@ const SPEED = 60.0
 @export var player: Node2D = null
 var goal: Node2D = null
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
+
+@export var audio_player_moving:AudioStreamPlayer2D
+@export var audio_player_passive:AudioStreamPlayer2D
+
+
 func _ready() -> void:
 	goal = get_nearest_light()
 	$NavigationAgent2D.target_position = goal.global_position
 	
 	
 func _physics_process(delta: float) -> void:
+	
 	#print(global_position)
 	if !nav_agent.is_target_reached():
 		var nav_point_direction: Vector2 = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = nav_point_direction * SPEED;
 		move_and_slide()
-
+		
+	if goal == player:
+		audio_player_moving.play()
+		print("moving")
+	else:
+		audio_player_passive.play()
+		print("passive")
 
 func _on_timer_timeout() -> void:
 	goal = get_nearest_light()

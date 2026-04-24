@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://didcrkk12chqy" path="res://Textures/folder1.png" id="11_gymyn"]
 [ext_resource type="Script" uid="uid://bne5326yahbln" path="res://Scripts/heartbeat.gd" id="12_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://c82up62cu4i1y" path="res://Textures/pills0.png" id="12_ukyrk"]
-[ext_resource type="Script" uid="uid://sety0tp71362" path="res://Scripts/pills.gd" id="13_7dp3o"]
+[ext_resource type="Script" path="res://Scripts/pills.gd" id="13_7dp3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
 radius = 28.0
@@ -150,7 +150,7 @@ scale = Vector2(5.787481, 3.2671432)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("6_1jxqw")
-texture_scale = 0.25
+texture_scale = 0.1
 
 [node name="OverheadText" type="RichTextLabel" parent="." unique_id=1275225173]
 texture_filter = 1

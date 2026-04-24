@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://dopoomcf6i0y3"]
 
 [ext_resource type="Script" uid="uid://bjw005tan2xw4" path="res://enemy/enemy.gd" id="1_ofsxj"]
+[ext_resource type="AudioStream" uid="uid://drb31qtttaysf" path="res://Sounds/AUDIO_pasi_fantoma.mp3" id="2_p200p"]
 [ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_ppra6"]
+[ext_resource type="AudioStream" uid="uid://bxpflhea7cdsb" path="res://Sounds/AUDIO_whispers.mp3" id="3_pmsee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p200p"]
 radius = 16.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=207693818]
+[node name="Enemy" type="CharacterBody2D" unique_id=207693818 node_paths=PackedStringArray("audio_player_moving", "audio_player_passive")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ofsxj")
+audio_player_moving = NodePath("Moving")
+audio_player_passive = NodePath("Passive")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=276362108]
 modulate = Color(1, 0.2784314, 0.2901961, 1)
@@ -27,5 +31,14 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="." unique_id=231627380]
 wait_time = 0.2
 autostart = true
+
+[node name="Moving" type="AudioStreamPlayer2D" parent="." unique_id=991748620]
+stream = ExtResource("2_p200p")
+volume_db = 1.8
+max_distance = 100000000.0
+
+[node name="Passive" type="AudioStreamPlayer2D" parent="." unique_id=972761712]
+stream = ExtResource("3_pmsee")
+max_distance = 83840.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

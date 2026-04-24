@@ -127,7 +127,7 @@ tile_set = SubResource("TileSet_lce2v")
 
 [node name="Player" parent="." unique_id=677089403 instance=ExtResource("2_tai8l")]
 z_index = 1
-position = Vector2(2438, 1106)
+position = Vector2(2481, 1136)
 scale = Vector2(0.5, 0.5)
 
 [node name="Enemy" parent="." unique_id=207693818 node_paths=PackedStringArray("lights", "player") instance=ExtResource("6_bvuje")]
@@ -170,10 +170,11 @@ teleport_location = NodePath("TPLOC")
 [node name="TPLOC" type="Node2D" parent="CORIDOR1 - PRINCIPAL/Room2Door" unique_id=947672627]
 position = Vector2(-2455.0002, 959.99976)
 
-[node name="ResponsiveEvent" parent="CORIDOR1 - PRINCIPAL" unique_id=1689907638 node_paths=PackedStringArray("firstdoor", "secdoor") instance=ExtResource("9_tb6a6")]
+[node name="ResponsiveEvent" parent="CORIDOR1 - PRINCIPAL" unique_id=1689907638 node_paths=PackedStringArray("firstdoor", "secdoor", "player") instance=ExtResource("9_tb6a6")]
 position = Vector2(316, 111)
 firstdoor = NodePath("../Room2Door")
 secdoor = NodePath("../Room4IncompDoor")
+player = NodePath("../../Player")
 
 [node name="Room4IncompDoor" parent="CORIDOR1 - PRINCIPAL" unique_id=1698536774 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
 position = Vector2(1.0000038, 172.99998)
