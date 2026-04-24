@@ -7,7 +7,8 @@ const SPEED = 60.0
 @export var player: Node2D = null
 var goal: Node2D = null
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
-
+@onready var icon: AnimatedSprite2D = $Icon
+@onready var collision: CollisionShape2D = $CollisionShape2D
 @export var audio_player_moving:AudioStreamPlayer2D
 @export var audio_player_passive:AudioStreamPlayer2D
 
@@ -15,13 +16,17 @@ var goal: Node2D = null
 func _ready() -> void:
 	goal = get_nearest_light()
 	$NavigationAgent2D.target_position = goal.global_position
+	icon.play("default")
 	
 	
 func _physics_process(delta: float) -> void:
 	
 	#print(global_position)
 	if !nav_agent.is_target_reached():
-		var nav_point_direction: Vector2 = to_local(nav_agent.get_next_path_position()).normalized()
+		var nav_point: Vector2 = nav_agent.get_next_path_position()
+		var nav_point_direction: Vector2 = to_local(nav_point).normalized()
+		icon.look_at(nav_point)
+		collision.look_at(nav_point)
 		velocity = nav_point_direction * SPEED;
 		move_and_slide()
 		

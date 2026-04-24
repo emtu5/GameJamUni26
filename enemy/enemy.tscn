@@ -2,11 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bjw005tan2xw4" path="res://enemy/enemy.gd" id="1_ofsxj"]
 [ext_resource type="AudioStream" uid="uid://drb31qtttaysf" path="res://Sounds/AUDIO_pasi_fantoma.mp3" id="2_p200p"]
-[ext_resource type="Texture2D" uid="uid://j6s75xhpqs5f" path="res://icon.svg" id="2_ppra6"]
+[ext_resource type="Texture2D" uid="uid://bfsyckorf4ejw" path="res://Textures/fantoma/move1.png" id="2_pmsee"]
+[ext_resource type="Texture2D" uid="uid://gxiv7afbbtpx" path="res://Textures/fantoma/move2.png" id="3_1wwld"]
 [ext_resource type="AudioStream" uid="uid://bxpflhea7cdsb" path="res://Sounds/AUDIO_whispers.mp3" id="3_pmsee"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p200p"]
-radius = 16.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5vj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pmsee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1wwld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsee"]
+size = Vector2(50, 30)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=207693818 node_paths=PackedStringArray("audio_player_moving", "audio_player_passive")]
 collision_layer = 2
@@ -15,13 +30,15 @@ script = ExtResource("1_ofsxj")
 audio_player_moving = NodePath("Moving")
 audio_player_passive = NodePath("Passive")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=276362108]
-modulate = Color(1, 0.2784314, 0.2901961, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ppra6")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=368419168]
+position = Vector2(13, -1)
+scale = Vector2(0.16666666, 0.16666658)
+sprite_frames = SubResource("SpriteFrames_y5vj3")
+frame_progress = 0.15069593
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030206866]
-shape = SubResource("CircleShape2D_p200p")
+position = Vector2(11, 0)
+shape = SubResource("RectangleShape2D_pmsee")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=718214189]
 path_desired_distance = 3.0
