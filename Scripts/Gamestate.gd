@@ -17,3 +17,10 @@ func play_random_BGA():
 	audioplayer.stream = current_pick
 	audioplayer.play()
 	await audioplayer.finished
+
+func stop() -> void:
+	print("alooooooooooooa")
+	print(audioplayer)
+	print(audioplayer.playing)
+	audioplayer.stop()
+	print(audioplayer.playing)

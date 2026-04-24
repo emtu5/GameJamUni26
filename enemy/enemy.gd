@@ -27,10 +27,10 @@ func _physics_process(delta: float) -> void:
 		
 	if goal == player:
 		audio_player_moving.play()
-		print("moving")
+		#print("moving")
 	else:
 		audio_player_passive.play()
-		print("passive")
+		#print("passive")
 
 func _on_timer_timeout() -> void:
 	goal = get_nearest_light()

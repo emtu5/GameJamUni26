@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0oneusxje4qc"]
 
 [ext_resource type="Script" uid="uid://bnbfb64g7fug2" path="res://fadeout/fadeout.gd" id="1_n63rt"]
+[ext_resource type="Texture2D" uid="uid://flwnxf80txbn" path="res://Textures/ENDING2.png" id="2_x8dyx"]
 
 [sub_resource type="Animation" id="Animation_x8dyx"]
 length = 0.001
@@ -16,6 +17,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1p45m"]
+resource_name = "fade_in_ghost_end2"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 4.5, 4.5001, 4.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8i7w6"]
 resource_name = "fade_to_black"
@@ -28,6 +69,22 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_igmtq"]
+resource_name = "fade_to_black_end2"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -49,11 +106,30 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6mmow"]
+resource_name = "fade_to_white_end1"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 5.4666667, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_igmtq"]
 _data = {
 &"RESET": SubResource("Animation_x8dyx"),
+&"fade_in_ghost_end2": SubResource("Animation_1p45m"),
 &"fade_to_black": SubResource("Animation_8i7w6"),
-&"fade_to_normal": SubResource("Animation_trehy")
+&"fade_to_black_end2": SubResource("Animation_igmtq"),
+&"fade_to_normal": SubResource("Animation_trehy"),
+&"fade_to_white_end1": SubResource("Animation_6mmow")
 }
 
 [node name="Fadeout" type="CanvasLayer" unique_id=1135680978]
@@ -70,3 +146,24 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1836549959]
 libraries/ = SubResource("AnimationLibrary_igmtq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2711873]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = -26.0
+offset_right = -90.64514
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x8dyx")
+expand_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=755603605]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

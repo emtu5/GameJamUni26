@@ -8,6 +8,7 @@ var move_dir = Vector2.ZERO
 @onready var flashlight = $Pivot/Flashlight
 @onready var interactray = $Pivot/RayCast2D
 @onready var cam: Camera2D = $Camera
+@onready var ui: CanvasLayer = $UI
 var hasFirstKey:bool
 var hasSecondKey:bool
 var gotfirstphone:bool # add to ending reqs
