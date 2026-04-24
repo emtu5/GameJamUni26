@@ -10,6 +10,7 @@ radius = 65.86
 script = ExtResource("1_ixlo8")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=263042388]
+color = Color(0.99994534, 0.8846307, 0.8449979, 1)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("1_v1p71")

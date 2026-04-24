@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxnx3pgtoiogu"]
 
-[ext_resource type="Script" uid="uid://cd7ea0r1br33r" path="res://Scenes/Main_menu.gd" id="1_853f1"]
+[ext_resource type="Script" uid="uid://cd7ea0r1br33r" path="res://Scripts/Main_menu.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://biy5cspd4i7gp" path="res://Textures/MMbackground.png" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://cxuayiki4f7dv" path="res://Textures/titlecard.png" id="3_8saeu"]
 [ext_resource type="Script" uid="uid://cd26uti4javwu" path="res://Scenes/Titlecard.gd" id="4_ghw46"]
@@ -78,7 +78,7 @@ texture_filter = 1
 position = Vector2(340, 270)
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_853f1")
-frame_progress = 0.10876903
+frame_progress = 0.70983136
 script = ExtResource("4_ghw46")
 
 [node name="Start" type="Button" parent="Control" unique_id=982692224]

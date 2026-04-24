@@ -4,6 +4,7 @@ enum FolderText {FIRST,SECOND,THIRD,FOURTH,FIFTH}
 @export var selectedText:FolderText
 @onready var textlabel = $CanvasLayer/Panel/Button
 @onready var uiNode = $CanvasLayer
+@onready var audio_player = $AudioStreamPlayer2D
 var debug_txt = "res://FolderTexts/LOREM.txt"
 var first_txt = "res://FolderTexts/FirstFile.txt"
 var second_txt = "res://FolderTexts/SecondFile.txt"
@@ -19,6 +20,7 @@ func _ready():
 func interact():
 	overhead_text.text = "picked up a folder!"
 	uiNode.show()
+	audio_player.play()
 	match selectedText:
 		FolderText.FIRST:
 			textlabel.text = get_fucking_text(first_txt)
@@ -41,5 +43,7 @@ func get_fucking_text(filePath):
 
 func _on_button_pressed() -> void:
 	uiNode.hide()
+	audio_player.play()
+	await audio_player.finished
 	queue_free()
 	player.foldercount += 1

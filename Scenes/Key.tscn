@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwv0r4th5ysdf"]
 
 [ext_resource type="Script" uid="uid://bbklouje5m52k" path="res://Scripts/Key.gd" id="1_i3td7"]
-[ext_resource type="Texture2D" uid="uid://cgqac4830163y" path="res://Textures/key1.png" id="2_i3td7"]
+[ext_resource type="Texture2D" uid="uid://calodskohu25d" path="res://Textures/key2.png" id="2_vmsh4"]
 [ext_resource type="AudioStream" uid="uid://bw12pofhydfrr" path="res://Sounds/cheie2_ambientspital.ogg" id="3_vmsh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuixy"]
@@ -14,7 +14,8 @@ script = ExtResource("1_i3td7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=401805048]
 texture_filter = 1
-texture = ExtResource("2_i3td7")
+texture = ExtResource("2_vmsh4")
+offset = Vector2(-32, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=332553779]
 collision_layer = 128
