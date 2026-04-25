@@ -198,7 +198,6 @@ z_index = 1
 texture_filter = 1
 position = Vector2(2368, 1087)
 scale = Vector2(0.5, 0.5)
-speed = 624
 samsung_note_7 = NodePath("../ROOM5 - PATIENT - COMP/EndingPhone")
 
 [node name="ROOM1-BIROU" type="Node2D" parent="." unique_id=546721010]
