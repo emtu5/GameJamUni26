@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dxokcdpidsa74"]
+
+[ext_resource type="Script" uid="uid://cn5wfhg1krksu" path="res://Scenes/tutorial_note.gd" id="1_b3ko3"]
+[ext_resource type="Texture2D" uid="uid://2e1imcdkdaij" path="res://Textures/note_bg.png" id="3_4ltp8"]
+[ext_resource type="Texture2D" uid="uid://cypbe4t03nryc" path="res://Textures/note_insanity_bar.png" id="3_b3ko3"]
+[ext_resource type="AudioStream" uid="uid://cp06letrslew5" path="res://Sounds/AUDIO_fosnet_hartie.mp3" id="4_dxp5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh54u"]
+size = Vector2(46, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3ko3"]
+radius = 110.01818
+
+[node name="Note" type="Node2D" unique_id=468401481]
+process_mode = 3
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_b3ko3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1191347239]
+texture_filter = 1
+texture = ExtResource("3_b3ko3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1549660805]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2002483277]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_xh54u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1633802906]
+layer = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=591200178]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1950341427]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 178.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4ltp8")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1478503112]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 500.0
+flat = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=949201457]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 35.0
+offset_right = 372.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1019782566]
+stream = ExtResource("4_dxp5q")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=979312510]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1081671050]
+shape = SubResource("CircleShape2D_b3ko3")
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

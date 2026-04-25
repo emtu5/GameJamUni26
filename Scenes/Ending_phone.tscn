@@ -19,8 +19,9 @@ endingonesound = ExtResource("2_lo3un")
 endingtwosound = ExtResource("3_ui1nv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=671726685]
-modulate = Color(0, 1, 0, 1)
 texture_filter = 1
+position = Vector2(-68, -68)
+scale = Vector2(2, 2)
 texture = ExtResource("2_cu8nw")
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=5893199]

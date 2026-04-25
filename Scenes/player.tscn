@@ -96,7 +96,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_1jxqw")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot" unique_id=907411532]
-target_position = Vector2(137, 0)
+target_position = Vector2(160, 0)
 collision_mask = 128
 collide_with_areas = true
 
