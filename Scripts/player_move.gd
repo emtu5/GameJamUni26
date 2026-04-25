@@ -7,7 +7,7 @@ var move_dir = Vector2.ZERO
 @onready var player_sprite: AnimatedSprite2D = $Sprite2D
 @onready var arealight = $AreaLight
 @onready var flashlight = $Pivot/Flashlight
-@onready var interactray = $Pivot/RayCast2D
+@onready var interactray = $Pivot/ShapeCast2D
 @onready var cam: Camera2D = $Camera
 @onready var ui: CanvasLayer = $UI
 var hasFirstKey:bool
@@ -17,7 +17,7 @@ var hasLightSource:bool = false
 var isAttacked: bool = false
 @onready var foldercount:int = 0
 var sanity:float
-const SANITY_INCREMENT: float = 0.1
+const SANITY_INCREMENT: float = 0.15
 @onready var audioplayer = $FlashlightPlayer
 @onready var heartbeat = $HeartbeatPlayer
 @onready var pills = $UI/Pills
@@ -49,7 +49,8 @@ func _physics_process(delta: float) -> void:
 		flashlight.enabled = not flashlight.enabled
 
 	if is_alive and Input.is_action_just_pressed("Interact"):
-		var hit = interactray.get_collider()
+		var hit = interactray.get_collider(0)
+		print(hit)
 		if hit and hit.get_parent() is Interactable:
 			hit.get_parent().interact()
 		
@@ -58,14 +59,16 @@ func _physics_process(delta: float) -> void:
 func process_sanity() -> void:
 	if (flashlight.enabled or hasLightSource) and not isAttacked:
 		modify_sanity(SANITY_INCREMENT)
+	elif isAttacked:
+		modify_sanity(-SANITY_INCREMENT * 2)
 	else:
 		modify_sanity(-SANITY_INCREMENT)
-	#print(sanity)
-	if sanity >= 60:
+	print(sanity)
+	if sanity >= 80:
 		cam.normal_shader()
 		heartbeat.play_heartbeat("normal")
 		pills.set_pills(0)
-	elif sanity >= 40:
+	elif sanity >= 30:
 		cam.vignette_shader()
 		heartbeat.play_heartbeat("stressed")
 		pills.set_pills(1)

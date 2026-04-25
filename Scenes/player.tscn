@@ -55,6 +55,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6n3p"]
+size = Vector2(5, 30)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pu2lt"]
 shader = ExtResource("7_tx1dd")
 shader_parameter/outerRadius = 2.000000095
@@ -96,7 +99,8 @@ rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_1jxqw")
 
-[node name="RayCast2D" type="RayCast2D" parent="Pivot" unique_id=907411532]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="Pivot" unique_id=116030672]
+shape = SubResource("RectangleShape2D_l6n3p")
 target_position = Vector2(160, 0)
 collision_mask = 128
 collide_with_areas = true
