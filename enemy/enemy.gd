@@ -9,8 +9,10 @@ var goal: Node2D = null
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var icon: AnimatedSprite2D = $Icon
 @onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var area_col: CollisionShape2D = $Area2D/CollisionShape2D
 @export var audio_player_moving:AudioStreamPlayer2D
 @export var audio_player_passive:AudioStreamPlayer2D
+@onready var audio_player_attack:AudioStreamPlayer2D = $Attack
 
 
 func _ready() -> void:
@@ -27,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		var nav_point_direction: Vector2 = to_local(nav_point).normalized()
 		icon.look_at(nav_point)
 		collision.look_at(nav_point)
+		area_col.look_at(nav_point)
 		velocity = nav_point_direction * SPEED;
 		move_and_slide()
 		
@@ -58,3 +61,11 @@ func get_nearest_light() -> Node2D:
 	if min_light:
 		return min_light
 	return player
+	
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	audio_player_attack.play()
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	audio_player_attack.stop()

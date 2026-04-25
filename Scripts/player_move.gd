@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed:int = 15
+@export var samsung_note_7: Node2D
 var move_dir = Vector2.ZERO
 @onready var player_sprite: AnimatedSprite2D = $Sprite2D
 @onready var arealight = $AreaLight
@@ -21,12 +22,19 @@ const SANITY_INCREMENT: float = 0.1
 @onready var heartbeat = $HeartbeatPlayer
 @onready var pills = $UI/Pills
 @onready var uifolder = $UI/FolderCountUI/Counter
+var is_alive: bool = true
 func _ready():
+	is_alive = true
 	sanity = 100
 
 func _physics_process(delta: float) -> void:
-	process_sanity()
-	var input_dir = Input.get_vector("move_left","move_right","move_up","move_down") #get input vector
+	if sanity > 0:
+		process_sanity()
+	var input_dir: Vector2
+	if is_alive:
+		input_dir = Input.get_vector("move_left","move_right","move_up","move_down") #get input vector
+	else:
+		input_dir = Vector2.ZERO
 	move_dir = move_dir.lerp(input_dir, 0.265) #lerp for smoothing
 	velocity = move_dir * speed # apply movement vector and speed 
 	#print(velocity.length())
@@ -36,11 +44,11 @@ func _physics_process(delta: float) -> void:
 		player_sprite.play("walk")
 	move_and_slide() #move player
 	
-	if Input.is_action_just_pressed("toggle_flashlight"):
+	if is_alive and Input.is_action_just_pressed("toggle_flashlight"):
 		audioplayer.play()
 		flashlight.enabled = not flashlight.enabled
 
-	if Input.is_action_just_pressed("Interact"):
+	if is_alive and Input.is_action_just_pressed("Interact"):
 		var hit = interactray.get_collider()
 		if hit and hit.get_parent() is Interactable:
 			hit.get_parent().interact()
@@ -61,10 +69,16 @@ func process_sanity() -> void:
 		cam.vignette_shader()
 		heartbeat.play_heartbeat("stressed")
 		pills.set_pills(1)
-	else:
+	elif sanity > 0:
 		cam.distort_shader()
 		heartbeat.play_heartbeat("nauseous")
 		pills.set_pills(2)
+	else:
+		is_alive = false
+		samsung_note_7.forced_bad_end()
+		cam.vignette_shader()
+		cam.normal_shader()
+		
 	
 func modify_sanity(increment: float) -> void:
 	if sanity + increment > 100:

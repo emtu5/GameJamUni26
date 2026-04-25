@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bfsyckorf4ejw" path="res://Textures/fantoma/move1.png" id="2_pmsee"]
 [ext_resource type="Texture2D" uid="uid://gxiv7afbbtpx" path="res://Textures/fantoma/move2.png" id="3_1wwld"]
 [ext_resource type="AudioStream" uid="uid://bxpflhea7cdsb" path="res://Sounds/AUDIO_whispers.mp3" id="3_pmsee"]
+[ext_resource type="AudioStream" uid="uid://1gymugn7nhg5" path="res://Sounds/413497__inspectorj__stab-metal-knife-in-lettuce-e.wav" id="6_1wwld"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5vj3"]
 animations = [{
@@ -24,6 +25,7 @@ animations = [{
 size = Vector2(50, 30)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=207693818 node_paths=PackedStringArray("audio_player_moving", "audio_player_passive")]
+texture_filter = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ofsxj")
@@ -31,6 +33,7 @@ audio_player_moving = NodePath("Moving")
 audio_player_passive = NodePath("Passive")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=368419168]
+texture_filter = 1
 position = Vector2(13, -1)
 scale = Vector2(0.16666666, 0.16666658)
 sprite_frames = SubResource("SpriteFrames_y5vj3")
@@ -58,4 +61,18 @@ max_distance = 100000000.0
 stream = ExtResource("3_pmsee")
 max_distance = 83840.0
 
+[node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=725792656]
+stream = ExtResource("6_1wwld")
+volume_db = -3.05
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1013291091]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1676494773]
+position = Vector2(11, 0)
+shape = SubResource("RectangleShape2D_pmsee")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
