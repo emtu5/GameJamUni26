@@ -34,6 +34,10 @@ func interact():
 	audio_player.play()
 	
 	var buttontext = $UI/Button
+	if player.foldercount == 5:
+		endtext = ending1text
+	else:
+		endtext = ending2text
 	buttontext.text = endtext
 	await uilayer.visibility_changed
 	audio_player.stop()
@@ -44,12 +48,7 @@ func _on_play_audio_area_body_entered(body: Node2D) -> void:
 	var stream = calls["ring"]
 	audio_player.stream = stream
 	audio_player.play()
-	
-	if player.foldercount == 5:
-		endtext = ending1text
-	else:
-		endtext = ending2text
-		
+
 
 #manole was here 😎
 func _on_play_audio_area_body_exited(body: Node2D) -> void:
