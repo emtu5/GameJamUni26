@@ -64,7 +64,9 @@ func _on_play_audio_area_body_exited(body: Node2D) -> void:
 	if player.foldercount == 5 and player.gotfirstphone:
 		audio_player.stream = endingonesound
 		audio_player.play()
-		Fadeout.end1()
+		await Fadeout.end1()
+		#await Fadeout.anim_player.animation_finished
+		get_tree().change_scene_to_file("res://Scenes/EndCredits.tscn")
 		#THIS IS THE GOOD END
 	else:
 		player.is_alive = false
@@ -93,8 +95,8 @@ func _on_button_pressed() -> void:
 	if player.foldercount == 5 and player.gotfirstphone:
 		audio_player.stream = endingonesound
 		audio_player.play()
-		Fadeout.end1()
-		await Fadeout.anim_player.animation_finished
+		await Fadeout.end1()
+		#await Fadeout.anim_player.animation_finished
 		get_tree().change_scene_to_file("res://Scenes/EndCredits.tscn")
 		#THIS THE GOOD END
 	else:
