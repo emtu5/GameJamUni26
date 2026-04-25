@@ -12,5 +12,6 @@ BGATwo = ExtResource("2_0nr52")
 BGAThree = ExtResource("4_l4pxm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1341863541]
+process_mode = 3
 autoplay = true
 max_distance = 261431.0
