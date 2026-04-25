@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bxywl8ovoek5q" path="res://Textures/chair.png" id="20_lkt0q"]
 [ext_resource type="PackedScene" uid="uid://sq1skecic2xn" path="res://enemy/navigation_region_2d_2.tscn" id="21_dddpr"]
 [ext_resource type="Texture2D" uid="uid://boseyfdmrx734" path="res://Textures/door2.png" id="25_2nh8t"]
+[ext_resource type="Script" uid="uid://cfcebqm87mh3" path="res://responsive_eventnoarea.gd" id="29_p7hyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tai8l"]
 texture = ExtResource("1_k3ug5")
@@ -645,6 +646,7 @@ texture = ExtResource("11_i7m2u")
 position = Vector2(-45.999996, 412.99997)
 rotation = -0.9302605
 scale = Vector2(1, 1)
+key_var = 2
 
 [node name="WaitingDoor" parent="ROOM2  - WAITING" unique_id=344907092 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
 position = Vector2(5.9999995, 59.999996)
@@ -653,10 +655,6 @@ teleport_location = NodePath("TPLOC")
 
 [node name="TPLOC" type="Node2D" parent="ROOM2  - WAITING/WaitingDoor" unique_id=819298301]
 position = Vector2(2484.9998, -1019.99976)
-
-[node name="Folder1" parent="ROOM2  - WAITING" unique_id=208845382 instance=ExtResource("12_r8jfd")]
-position = Vector2(-102, 390)
-rotation = 1.2793263
 
 [node name="SmolTable" type="StaticBody2D" parent="ROOM2  - WAITING" unique_id=1098480117]
 position = Vector2(-139, 239)
@@ -691,7 +689,7 @@ position = Vector2(-9, -2.5)
 shape = SubResource("RectangleShape2D_v66k7")
 
 [node name="Chair2" type="StaticBody2D" parent="ROOM2  - WAITING" unique_id=2136412707]
-position = Vector2(133, 388)
+position = Vector2(133, 414)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ROOM2  - WAITING/Chair2" unique_id=730382348]
@@ -704,7 +702,7 @@ position = Vector2(-9, -2.5)
 shape = SubResource("RectangleShape2D_v66k7")
 
 [node name="Chair3" type="StaticBody2D" parent="ROOM2  - WAITING" unique_id=1113203016]
-position = Vector2(133, 323)
+position = Vector2(133, 299)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ROOM2  - WAITING/Chair3" unique_id=1074531703]
@@ -869,6 +867,23 @@ position = Vector2(2305.0002, -6869.999)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="ROOM4 - PATIENT -INCOMP" unique_id=658025790]
 occluder = SubResource("OccluderPolygon2D_e53li")
 
+[node name="ArchiveDoorReal" parent="ROOM4 - PATIENT -INCOMP" unique_id=1475617240 node_paths=PackedStringArray("teleport_location") instance=ExtResource("7_h16f0")]
+position = Vector2(85.99999, 161.99998)
+teleport_location = NodePath("TPLOC")
+
+[node name="TPLOC" type="Node2D" parent="ROOM4 - PATIENT -INCOMP/ArchiveDoorReal" unique_id=2011595232]
+position = Vector2(-7244.9995, 5429.9995)
+
+[node name="Folder1" parent="ROOM4 - PATIENT -INCOMP" unique_id=1163217120 instance=ExtResource("12_r8jfd")]
+position = Vector2(18, 132)
+rotation = 1.2793263
+
+[node name="ResponsiveEventnoarea" type="Node2D" parent="ROOM4 - PATIENT -INCOMP" unique_id=2063436167 node_paths=PackedStringArray("entrydoor", "exitdoor", "folder")]
+script = ExtResource("29_p7hyr")
+entrydoor = NodePath("../Corridor1Door")
+exitdoor = NodePath("../ArchiveDoorReal")
+folder = NodePath("../Folder1")
+
 [node name="ROOM5 - PATIENT - COMP" type="Node2D" parent="." unique_id=1436068027]
 position = Vector2(5192, 2161)
 
@@ -938,3 +953,5 @@ occluder = SubResource("OccluderPolygon2D_lkt0q")
 [node name="GAMESTATE" parent="." unique_id=412032297 instance=ExtResource("19_1ovim")]
 
 [node name="NavigationRegion2D2" parent="." unique_id=1257586620 instance=ExtResource("21_dddpr")]
+
+[connection signal="tree_exited" from="ROOM4 - PATIENT -INCOMP/Folder1" to="ROOM4 - PATIENT -INCOMP/ResponsiveEventnoarea" method="_on_folder_1_tree_exited"]

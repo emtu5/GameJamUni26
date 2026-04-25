@@ -23,7 +23,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		firstdoor.visible = true
 		return
 	
-	if fucking == 2 and player.hasFirstKey: #spawn second door. add SFX/VFX here
+	if fucking == 2: #spawn second door. add SFX/VFX here
 		audio_player.play()
 		firstdoor.process_mode = Node.PROCESS_MODE_DISABLED
 		firstdoor.visible = false
