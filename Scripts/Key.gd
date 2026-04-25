@@ -7,7 +7,8 @@ enum KeyType {FIRST,SECOND,DUMMY}
 
 func interact():
 	audioplayer.play()
-	overhead_text.text = "picked up a key!" 
+	overhead_text.text = "Picked up a key!" 
+	text_timer.start()
 	match key_var:
 		KeyType.FIRST:
 			player.hasFirstKey = true

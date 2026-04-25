@@ -18,7 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://didcrkk12chqy" path="res://Textures/folder1.png" id="11_gymyn"]
 [ext_resource type="Script" uid="uid://bne5326yahbln" path="res://Scripts/heartbeat.gd" id="12_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://c82up62cu4i1y" path="res://Textures/pills0.png" id="12_ukyrk"]
-[ext_resource type="Script" path="res://Scripts/pills.gd" id="13_7dp3o"]
+[ext_resource type="Script" uid="uid://sety0tp71362" path="res://Scripts/pills.gd" id="13_7dp3o"]
+[ext_resource type="Script" uid="uid://dxo8qolp7cs7f" path="res://overhead_text.gd" id="16_l6n3p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8erm5"]
 radius = 28.0
@@ -152,17 +153,6 @@ shadow_enabled = true
 texture = ExtResource("6_1jxqw")
 texture_scale = 0.1
 
-[node name="OverheadText" type="RichTextLabel" parent="." unique_id=1275225173]
-texture_filter = 1
-offset_left = -20.0
-offset_top = -71.0
-offset_right = 20.0
-offset_bottom = -31.0
-theme_override_font_sizes/normal_font_size = 8
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Area2D" type="Area2D" parent="." unique_id=967960776]
 collision_layer = 26
 collision_mask = 26
@@ -176,6 +166,23 @@ pitch_scale = 0.75
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=981600349]
 layer = 2
+
+[node name="OverheadText" type="RichTextLabel" parent="UI" unique_id=1275225173]
+texture_filter = 1
+offset_left = -122.0
+offset_top = -71.0
+offset_right = 122.0
+offset_bottom = -31.0
+pivot_offset = Vector2(122, 20)
+text = "#####################"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("16_l6n3p")
+
+[node name="Timer" type="Timer" parent="UI/OverheadText" unique_id=1466096734]
+wait_time = 3.0
+one_shot = true
 
 [node name="FolderCountUI" type="HBoxContainer" parent="UI" unique_id=673939454]
 offset_left = 29.0
@@ -218,3 +225,4 @@ script = ExtResource("12_pu2lt")
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="UI/OverheadText/Timer" to="UI/OverheadText" method="_on_text_timer_timeout"]

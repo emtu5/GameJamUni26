@@ -21,7 +21,8 @@ func _ready():
 	uiNode.hide()
 
 func interact():
-	overhead_text.text = "picked up a folder!"
+	overhead_text.text = "Picked up a folder!"
+	text_timer.start()
 	uiNode.show()
 	audio_player.play()
 	match selectedText:

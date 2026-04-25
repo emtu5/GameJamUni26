@@ -21,7 +21,8 @@ func interact(): #returns for complete premature optimization
 			return
 		else:
 			audioplayerclose.play()
-			overhead_text.text = "you are missing the key!"			
+			overhead_text.text = "You are missing the right key!"			
+			text_timer.start()
 		if player.hasSecondKey and key_req == RequiredKey.SECOND:
 			audioplayeropen.play()
 			transition_player() 
@@ -29,7 +30,8 @@ func interact(): #returns for complete premature optimization
 			return
 		else:
 			audioplayerclose.play()
-			overhead_text.text = "you are missing the key!"
+			overhead_text.text = "You are missing the right key!"
+			text_timer.start()
 
 func transition_player():
 	Fadeout.transition()
