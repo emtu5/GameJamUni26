@@ -174,7 +174,6 @@ offset_top = -71.0
 offset_right = 122.0
 offset_bottom = -31.0
 pivot_offset = Vector2(122, 20)
-text = "#####################"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
