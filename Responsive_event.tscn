@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbmmrnddmdo34" path="res://Responsive_event.gd" id="1_omne6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsn7g"]
-size = Vector2(68, 138)
+size = Vector2(145, 138)
 
 [node name="ResponsiveEvent" type="Node2D" unique_id=1689907638]
 script = ExtResource("1_omne6")
@@ -13,7 +13,7 @@ collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1194836311]
-position = Vector2(23, 0)
+position = Vector2(-15.5, 0)
 shape = SubResource("RectangleShape2D_dsn7g")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

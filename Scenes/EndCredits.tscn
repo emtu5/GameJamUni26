@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://k0dj87app5c7"]
+
+[ext_resource type="Texture2D" uid="uid://biy5cspd4i7gp" path="res://Textures/MMbackground.png" id="1_8uaai"]
+[ext_resource type="Script" uid="uid://co3wxn6l00icg" path="res://Scenes/end_credits.gd" id="1_sqbnm"]
+[ext_resource type="Texture2D" uid="uid://cum4y3v8o2hie" path="res://Textures/exit_button.png" id="2_pjkxw"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1775869682]
+layer = 8
+script = ExtResource("1_sqbnm")
+
+[node name="EndCredits" type="Control" parent="." unique_id=1550759441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="EndCredits" unique_id=257066433]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8uaai")
+expand_mode = 5
+
+[node name="Button" type="Button" parent="EndCredits" unique_id=1063806447]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -170.0
+offset_right = 173.0
+offset_bottom = -34.0
+grow_vertical = 0
+icon = ExtResource("2_pjkxw")
+flat = true
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="EndCredits" unique_id=1650885546]
+texture_filter = 1
+layout_mode = 0
+offset_left = 103.0
+offset_top = 53.0
+offset_right = 311.0
+offset_bottom = 778.0
+text = "BEDSIDE MANNER
+
+Production & Game Design
+Georgiana Ramona Sîrbu
+Programmers
+Mulicz Walter-Francisc
+Găgăuță Andrei-Paul
+UI
+Negoiță Alexia Ana-Maria
+Dumitrescu Vivienne
+Technical Art
+Mulicz Walter-Francisc
+Găgăuță Andrei-Paul
+Level Design
+Mulicz Walter-Francisc
+Găgăuță Andrei-Paul
+Georgiana Ramona Sîrbu
+Lead Artist
+Ungur Denisa Ioana
+Artist
+Negoiță Alexia Ana-Maria
+Audio Artist
+Popa Teodora Cristina
+Narrative & Worldbuilding
+Georgiana Ramona Sîrbu
+
+Built in Godot 4.6.1
+Made during GameJam
+Universitar 2026"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="EndCredits/Button" to="." method="_on_button_pressed"]

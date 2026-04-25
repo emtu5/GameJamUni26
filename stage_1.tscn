@@ -137,6 +137,9 @@ polygon = PackedVector2Array(53, 42, 54, 133, 74, 133, 74, 125, 138, 125, 138, 1
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xo11l"]
 polygon = PackedVector2Array(237, 8, 237, 520, -243, 520, -243, 8, -212, 39, -212, 489, 206, 489, 206, 39, -212, 39, -243, 8)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r3sa3"]
+polygon = PackedVector2Array(117, 298, 117, 390, 139, 390, 139, 298)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn7pg"]
 size = Vector2(28, 92)
 
@@ -196,12 +199,6 @@ texture_filter = 1
 position = Vector2(2368, 1087)
 scale = Vector2(0.5, 0.5)
 samsung_note_7 = NodePath("../ROOM5 - PATIENT - COMP/EndingPhone")
-
-[node name="Enemy" parent="." unique_id=207693818 node_paths=PackedStringArray("lights", "player") instance=ExtResource("6_bvuje")]
-texture_filter = 0
-position = Vector2(3983, 2210)
-lights = NodePath("../ROOM3 - ARCHIVE/Lights")
-player = NodePath("../Player")
 
 [node name="ROOM1-BIROU" type="Node2D" parent="." unique_id=546721010]
 position = Vector2(2445, 884)
@@ -374,7 +371,7 @@ rotation = 1.3177236
 selectedText = 1
 
 [node name="Folder4" parent="ROOM3 - ARCHIVE" unique_id=1784231253 instance=ExtResource("12_r8jfd")]
-position = Vector2(148, 52)
+position = Vector2(150, 140)
 rotation = 1.0471976
 selectedText = 3
 
@@ -492,6 +489,9 @@ occluder = SubResource("OccluderPolygon2D_ti4lv")
 
 [node name="LightOccluder2D11" type="LightOccluder2D" parent="ROOM3 - ARCHIVE/Occluders" unique_id=1287426554]
 occluder = SubResource("OccluderPolygon2D_xo11l")
+
+[node name="LightOccluder2D12" type="LightOccluder2D" parent="ROOM3 - ARCHIVE/Occluders" unique_id=586780735]
+occluder = SubResource("OccluderPolygon2D_r3sa3")
 
 [node name="Props" type="Node2D" parent="ROOM3 - ARCHIVE" unique_id=1274726540]
 
@@ -692,6 +692,12 @@ texture = ExtResource("13_r8jfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM3 - ARCHIVE/Props/StaticBody2D" unique_id=1652152032]
 shape = SubResource("RectangleShape2D_bf6yv")
+
+[node name="Enemy" parent="ROOM3 - ARCHIVE" unique_id=207693818 node_paths=PackedStringArray("lights", "player") instance=ExtResource("6_bvuje")]
+texture_filter = 0
+position = Vector2(-78, 86)
+lights = NodePath("../Lights")
+player = NodePath("../../Player")
 
 [node name="ROOM2  - WAITING" type="Node2D" parent="." unique_id=979009420]
 position = Vector2(4036, 1284)

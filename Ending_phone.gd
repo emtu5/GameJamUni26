@@ -94,6 +94,8 @@ func _on_button_pressed() -> void:
 		audio_player.stream = endingonesound
 		audio_player.play()
 		Fadeout.end1()
+		await Fadeout.anim_player.animation_finished
+		get_tree().change_scene_to_file("res://Scenes/EndCredits.tscn")
 		#THIS THE GOOD END
 	else:
 		player.is_alive = false
